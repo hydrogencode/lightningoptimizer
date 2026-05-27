@@ -1,8 +1,4 @@
-Lightning v1.0.1
-
+Lightning v1.2.0
 Made by hydrogen001
-
-
-
 License: MIT
 
