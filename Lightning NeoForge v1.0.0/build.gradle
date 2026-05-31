@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+version = '1.2.0'
+group = 'com.lightning.mod'
+
+repositories {
+    mavenCentral()
+}
+
+neoForge {
+    version = project.neo_version
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+            programArgument '--nogui'
+        }
+    }
+
+    mods {
+        lightning {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {}
+
+jar {
+    manifest {
+        attributes([
+            'MixinConfigs': 'lightning.mixins.json'
+        ])
+    }
+}
